@@ -1,0 +1,22 @@
+from PIL import Image
+bm = Image.open(r"C:\Users\kastu\Documents\BaggageAI\background_images\b1.jpg")
+im = Image.open(r"C:\Users\kastu\Documents\BaggageAI\threat_images\Tone.jpg")
+width, height = im.size
+print(width, height)
+left = 15
+top = height/6
+right = 150
+bottom = 3*height/4
+im1 = im.crop((left, top, right, bottom))
+#im1.show()   
+width1, height1 = im1.size
+print(width1, height1)
+newsize = (50, 75)
+im1 = im1.resize(newsize)
+im1.show()
+res = im1.rotate(45)
+res.show()
+im2 = im1.save("T1resize.jpg")
+im3= res.save("T1rotate.jpg")
+Image.Image.paste(bm, im3, (50, 125) )
+bm.show()
